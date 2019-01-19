@@ -14,6 +14,6 @@ history_df['domain'] = history_df.url.str.replace('http://','').str.replace('htt
 history_df['domain'] = history_df.domain.str.split(delim).str.get(0)
 print(history_df)
 
-counts = history_df.groupby(['domain']).size().reset_index()
-print(counts)
+counts = history_df.groupby(['domain']).size().reset_index(name='count')
+print(counts.sort_values('count', ascending=False))
 
