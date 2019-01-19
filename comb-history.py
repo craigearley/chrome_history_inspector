@@ -15,5 +15,5 @@ history_df['domain'] = history_df.domain.str.split(delim).str.get(0)
 print(history_df)
 
 counts = history_df.groupby(['domain']).size().reset_index(name='count')
-print(counts.sort_values('count', ascending=False))
+print(counts.sort_values('count', ascending=False).head(ROWS_TO_DISPLAY))
 
